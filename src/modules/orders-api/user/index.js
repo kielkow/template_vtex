@@ -9,7 +9,7 @@ class User {
         }
     }
 
-    getUserOrders(params) {
+    getOrders(params) {
         const userOrders = axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/user/orders`,
             {

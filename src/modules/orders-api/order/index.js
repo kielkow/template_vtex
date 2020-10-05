@@ -1,6 +1,14 @@
+const Feed = require('../feed');
+
 class Order {
-    constructor() {
-        
+    constructor(accountName, apiKey, appToken) {
+        this.credentials = {
+            accountName,
+            'x-vtex-api-apikey': apiKey,
+            'x-vtex-api-apptoken': appToken
+        }
+
+        this.Feed = new Feed();
     }
 }
 
