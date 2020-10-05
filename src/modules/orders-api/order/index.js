@@ -14,4 +14,4 @@ class Order {
     }
 }
 
-export default new Order();
+module.exports =  new Order();

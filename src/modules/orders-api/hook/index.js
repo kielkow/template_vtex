@@ -31,4 +31,4 @@ class Hook {
     }
 }
 
-export default new Hook();
+module.exports =  new Hook();

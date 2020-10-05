@@ -21,4 +21,4 @@ class Brand {
     }
 }
 
-export default Brand;
+module.exports =  Brand;

@@ -83,4 +83,4 @@ class StockKeepingUnit {
 
 }
 
-export default StockKeepingUnit;
+module.exports =  StockKeepingUnit;

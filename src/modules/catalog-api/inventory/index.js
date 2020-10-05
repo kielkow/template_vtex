@@ -22,4 +22,4 @@ class Inventory {
     }
 }
 
-export default Inventory;
+module.exports =  Inventory;

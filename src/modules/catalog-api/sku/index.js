@@ -47,4 +47,4 @@ class Sku {
     }
 }
 
-export default Sku;
+module.exports =  Sku;

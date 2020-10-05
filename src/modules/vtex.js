@@ -20,4 +20,4 @@ class Vtex {
     }
 }
 
-export default Vtex;
+module.exports =  Vtex;

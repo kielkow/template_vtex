@@ -33,4 +33,4 @@ class Price {
     }
 }
 
-export default Price;
+module.exports =  Price;

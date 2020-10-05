@@ -4,4 +4,4 @@ class Invoice {
     }
 }
 
-export default new Invoice();
+module.exports =  new Invoice();

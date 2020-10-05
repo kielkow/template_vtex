@@ -1,3 +1,3 @@
 const vtex = require('./modules/vtex');
 
-export default vtex;
+module.exports =  vtex;

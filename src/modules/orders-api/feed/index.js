@@ -68,4 +68,4 @@ class Feed {
     }
 }
 
-export default new Feed();
+module.exports =  new Feed();
