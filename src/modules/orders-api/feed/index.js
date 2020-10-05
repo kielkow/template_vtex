@@ -8,7 +8,7 @@ class Feed {
     }
 
     create(body) {
-        const feed = axios.get(
+        const feed = axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/feed`,
             {
                 headers: this.credentials,
@@ -27,6 +27,40 @@ class Feed {
                 params: {
                     maxlot
                 }
+            }
+        );
+
+        return feed;
+    }
+
+    updateConfig(body) {
+        const feed = axios.post(
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/feed/config`,
+            {
+                headers: this.credentials,
+                body
+            }
+        );
+
+        return feed;
+    }
+
+    getConfig() {
+        const feed = axios.get(
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/feed/config`,
+            {
+                headers: this.credentials
+            }
+        );
+
+        return feed;
+    }
+
+    deleteConfig() {
+        const feed = axios.delete(
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/feed/config`,
+            {
+                headers: this.credentials
             }
         );
 
