@@ -1,4 +1,5 @@
 const Feed = require('../feed');
+const Hook = require('../hook');
 
 class Order {
     constructor(accountName, apiKey, appToken) {
@@ -9,6 +10,7 @@ class Order {
         }
 
         this.Feed = new Feed();
+        this.Hook = new Hook();
     }
 }
 
