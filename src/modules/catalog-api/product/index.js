@@ -31,6 +31,17 @@ class Product {
 
         return product;
     }
+
+    getByRefId(refId) {
+        const product = axios.get(
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/productgetbyrefid/${refId}`,
+            {
+                headers: this.credentials
+            }
+        );
+
+        return product;
+    }
 }
 
 export default Product;
