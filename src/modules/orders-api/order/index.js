@@ -70,6 +70,17 @@ class Order {
 
         return order;
     }
+    
+    changeStatus(orderId, status) {
+        const order = axios.post(
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/changestate/${status}`,
+            {
+                headers: this.credentials
+            }
+        );
+
+        return order;
+    }
 
 
 }
