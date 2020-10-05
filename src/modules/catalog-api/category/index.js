@@ -11,7 +11,7 @@ class Category {
 
     getByLevels(categoryLevels = 1) {
         const category = axios.get(
-            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pub/tree/${categoryLevels}`,
+            `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pub/category/tree/${categoryLevels}`,
             {
                 headers: this.credentials
             }
