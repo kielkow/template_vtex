@@ -1,7 +1,5 @@
-const catalog_api = require('./catalog-api');
-const orders_api = require('./orders-api');
+import 'dotenv/config';
 
-module.exports = {
-    catalog_api,
-    orders_api
-};
+const vtex = require('./modules/vtex');
+
+export default vtex;
