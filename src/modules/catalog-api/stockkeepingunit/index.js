@@ -81,4 +81,4 @@ class StockKeepingUnit {
     }
 }
 
-module.exports =  StockKeepingUnit;
+module.exports = StockKeepingUnit;

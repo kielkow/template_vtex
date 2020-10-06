@@ -1,3 +1,4 @@
+const axios = require('axios');
 class Feed {
     constructor(accountName, appKey, appToken) {
         this.credentials = {
@@ -68,4 +69,4 @@ class Feed {
     }
 }
 
-module.exports =  new Feed();
+module.exports = Feed;

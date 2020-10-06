@@ -6,6 +6,7 @@ const Brand = require('./catalog-api/brand');
 const Price = require('./catalog-api/price');
 const StockKeepingUnit = require('./catalog-api/stockkeepingunit');
 const User = require('./orders-api/user');
+const Order = require('./orders-api/order');
 class Vtex {
     constructor(accountName, appKey, appToken) {
         this.Product = new Product(accountName, appKey, appToken);
@@ -16,6 +17,7 @@ class Vtex {
         this.Price = new Price(accountName, appKey, appToken);
         this.StockKeepingUnit = new StockKeepingUnit(accountName, appKey, appToken);
         this.User = new User(accountName, appKey, appToken);
+        this.Order = new Order(accountName, appKey, appToken);
     }
 }
 

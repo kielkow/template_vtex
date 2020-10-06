@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 class Hook {
     constructor(accountName, appKey, appToken) {
         this.credentials = {

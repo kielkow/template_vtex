@@ -9,7 +9,7 @@ class Brand {
         }
     }
 
-    async listBrands() {
+    async list() {
         const brands = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/brand/list`,
             {
@@ -21,4 +21,4 @@ class Brand {
     }
 }
 
-module.exports =  Brand;
+module.exports = Brand;

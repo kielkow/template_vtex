@@ -31,7 +31,7 @@ class Sku {
         return sku;
     }
 
-    async listAllSkusIds(page, pagesize) {
+    async listAllIds(page, pagesize) {
         const skusIds = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitids`,
             {
@@ -47,4 +47,4 @@ class Sku {
     }
 }
 
-module.exports =  Sku;
+module.exports = Sku;

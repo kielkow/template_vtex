@@ -1,3 +1,4 @@
+const axios = require('axios');
 class Invoice {
     constructor(accountName, appKey, appToken) {
         this.credentials = {

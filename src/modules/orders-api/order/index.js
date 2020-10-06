@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const Feed = require('../feed');
 const Hook = require('../hook');
 
@@ -9,8 +11,8 @@ class Order {
             'x-vtex-api-apptoken': appToken
         }
 
-        this.Feed = new Feed();
-        this.Hook = new Hook();
+        this.Feed = new Feed(accountName, appKey, appToken);
+        this.Hook = new Hook(accountName, appKey, appToken);
     }
 
     async getById(orderId) {
