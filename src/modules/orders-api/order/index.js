@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+const Invoice = require('../invoice');
 const Feed = require('../feed');
 const Hook = require('../hook');
 
@@ -11,6 +12,7 @@ class Order {
             'x-vtex-api-apptoken': appToken
         }
 
+        this.Invoice = new Invoice(accountName, appKey, appToken);
         this.Feed = new Feed(accountName, appKey, appToken);
         this.Hook = new Hook(accountName, appKey, appToken);
     }
