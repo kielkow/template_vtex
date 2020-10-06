@@ -45,12 +45,11 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    async getSkuFiles(skuId, params) {
+    async getSkuFiles(skuId) {
         const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/file`,
             {
-                headers: this.credentials,
-                params 
+                headers: this.credentials
             }
         );
 
@@ -61,8 +60,7 @@ class StockKeepingUnit {
         const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/ean`,
             {
-                headers: this.credentials,
-                params 
+                headers: this.credentials
             }
         );
 
