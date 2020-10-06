@@ -7,15 +7,15 @@ const Price = require('./catalog-api/price');
 const StockKeepingUnit = require('./catalog-api/stockkeepingunit');
 const User = require('./orders-api/user');
 class Vtex {
-    constructor(accountName, apiKey, appToken) {
-        this.Product = new Product(accountName, apiKey, appToken);
-        this.Sku = new Sku(accountName, apiKey, appToken);
-        this.Category = new Category(accountName, apiKey, appToken);
-        this.Inventory = new Inventory(accountName, apiKey, appToken);
-        this.Brand = new Brand(accountName, apiKey, appToken);
-        this.Price = new Price(accountName, apiKey, appToken);
-        this.StockKeepingUnit = new StockKeepingUnit(accountName, apiKey, appToken);
-        this.User = new User(accountName, apiKey, appToken);
+    constructor(accountName, appKey, appToken) {
+        this.Product = new Product(accountName, appKey, appToken);
+        this.Sku = new Sku(accountName, appKey, appToken);
+        this.Category = new Category(accountName, appKey, appToken);
+        this.Inventory = new Inventory(accountName, appKey, appToken);
+        this.Brand = new Brand(accountName, appKey, appToken);
+        this.Price = new Price(accountName, appKey, appToken);
+        this.StockKeepingUnit = new StockKeepingUnit(accountName, appKey, appToken);
+        this.User = new User(accountName, appKey, appToken);
     }
 }
 

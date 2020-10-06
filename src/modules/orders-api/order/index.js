@@ -2,10 +2,10 @@ const Feed = require('../feed');
 const Hook = require('../hook');
 
 class Order {
-    constructor(accountName, apiKey, appToken) {
+    constructor(accountName, appKey, appToken) {
         this.credentials = {
             accountName,
-            'x-vtex-api-apikey': apiKey,
+            'x-vtex-api-appkey': appKey,
             'x-vtex-api-apptoken': appToken
         }
 
