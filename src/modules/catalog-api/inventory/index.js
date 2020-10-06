@@ -9,8 +9,8 @@ class Inventory {
         }
     }
 
-    updateSkuWarehouse(skuId, warehouseId, body) {
-        const sku = axios.put(
+    async updateSkuWarehouse(skuId, warehouseId, body) {
+        const sku = await axios.put(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/logistics/pvt/skus/${skuId}/warehouses/${warehouseId}`,
             {
                 headers: this.credentials,

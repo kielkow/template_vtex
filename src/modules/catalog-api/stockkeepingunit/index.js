@@ -9,8 +9,8 @@ class StockKeepingUnit {
         }
     }
 
-    createSku(body) {
-        const stockKeepingUnit = axios.post(
+    async createSku(body) {
+        const stockKeepingUnit = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit`,
             {
                 headers: this.credentials, 
@@ -21,8 +21,8 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    getSkus(params) {
-        const stockKeepingUnit = axios.get(
+    async getSkus(params) {
+        const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit`,
             {
                 headers: this.credentials,
@@ -33,8 +33,8 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    createSkuFile(skuId, body) {
-        const stockKeepingUnit = axios.post(
+    async createSkuFile(skuId, body) {
+        const stockKeepingUnit = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/file`,
             {
                 headers: this.credentials, 
@@ -45,8 +45,8 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    getSkuFiles(skuId, params) {
-        const stockKeepingUnit = axios.get(
+    async getSkuFiles(skuId, params) {
+        const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/file`,
             {
                 headers: this.credentials,
@@ -57,8 +57,8 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    getEANBySkuId(skuId) {
-        const stockKeepingUnit = axios.get(
+    async getEANBySkuId(skuId) {
+        const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/ean`,
             {
                 headers: this.credentials,
@@ -69,8 +69,8 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    createEAN(skuId, ean) {
-        const stockKeepingUnit = axios.get(
+    async createEAN(skuId, ean) {
+        const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit/${skuId}/ean/${ean}`,
             {
                 headers: this.credentials
@@ -79,8 +79,6 @@ class StockKeepingUnit {
 
         return stockKeepingUnit;
     }
-
-
 }
 
 module.exports =  StockKeepingUnit;

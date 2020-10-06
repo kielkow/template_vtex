@@ -9,8 +9,8 @@ class Product {
         }
     }
 
-    getById(id) {
-        const product = axios.get(
+    async getById(id) {
+        const product = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/product/${id}`,
             {
                 headers: this.credentials
@@ -20,8 +20,8 @@ class Product {
         return product;
     }
 
-    create(body) {
-        const product = axios.post(
+    async create(body) {
+        const product = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/product`,
             {
                 headers: this.credentials,
@@ -32,8 +32,8 @@ class Product {
         return product;
     }
 
-    getByRefId(refId) {
-        const product = axios.get(
+    async getByRefId(refId) {
+        const product = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/productgetbyrefid/${refId}`,
             {
                 headers: this.credentials

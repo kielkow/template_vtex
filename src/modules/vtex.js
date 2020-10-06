@@ -5,7 +5,6 @@ const Inventory = require('./catalog-api/inventory');
 const Brand = require('./catalog-api/brand');
 const Price = require('./catalog-api/price');
 const StockKeepingUnit = require('./catalog-api/stockkeepingunit');
-
 const User = require('./orders-api/user');
 class Vtex {
     constructor(accountName, apiKey, appToken) {

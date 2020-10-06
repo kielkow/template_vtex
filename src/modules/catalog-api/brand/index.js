@@ -9,8 +9,8 @@ class Brand {
         }
     }
 
-    listBrands() {
-        const brands = axios.get(
+    async listBrands() {
+        const brands = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/brand/list`,
             {
                 headers: this.credentials

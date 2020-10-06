@@ -9,8 +9,8 @@ class Price {
         }
     }
 
-    updatePrice(id, body) {
-        const price = axios.put(
+    async updatePrice(id, body) {
+        const price = await axios.put(
             `https://api.vtex.com/${this.credentials.accountName}/pricing/prices/${id}`,
             {
                 headers: this.credentials,
@@ -21,8 +21,8 @@ class Price {
         return price;
     }
 
-    getPrice(id) {
-        const price = axios.post(
+    async getPrice(id) {
+        const price = await axios.post(
             `https://api.vtex.com/${this.credentials.accountName}/pricing/prices/${id}`,
             {
                 headers: this.credentials,

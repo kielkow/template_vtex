@@ -9,8 +9,8 @@ class Sku {
         }
     }
 
-    getByRefId(refId) {
-        const sku = axios.get(
+    async getByRefId(refId) {
+        const sku = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitidbyrefid/${refId}`,
             {
                 headers: this.credentials,
@@ -20,8 +20,8 @@ class Sku {
         return sku;
     }
 
-    getById(id) {
-        const sku = axios.get(
+    async getById(id) {
+        const sku = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/${id}`,
             {
                 headers: this.credentials,
@@ -31,8 +31,8 @@ class Sku {
         return sku;
     }
 
-    listAllSkusIds(page, pagesize) {
-        const skusIds = axios.get(
+    async listAllSkusIds(page, pagesize) {
+        const skusIds = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitids`,
             {
                 headers: this.credentials,
