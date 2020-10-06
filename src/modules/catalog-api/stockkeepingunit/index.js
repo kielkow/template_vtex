@@ -21,12 +21,14 @@ class StockKeepingUnit {
         return stockKeepingUnit;
     }
 
-    async getSkus(params) {
+    async getSkus(refId) {
         const stockKeepingUnit = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/catalog/pvt/stockkeepingunit`,
             {
                 headers: this.credentials,
-                params 
+                params: {
+                    refId
+                } 
             }
         );
 

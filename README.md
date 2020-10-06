@@ -42,7 +42,8 @@ test();
  ┃ ┗ 📂Hook  
 
 
-# Signature methods
+# Catalog
+
 ### Brand
 
 ```js
@@ -121,8 +122,8 @@ const skuListAllIds = await vtex.Sku.listAllIds(page, pagesize);
 const stockKeepingUnitCreateSku = await vtex.StockKeepingUnit.createSku(body);
 
 //https://{accountName}.{environment}.com.br/api/catalog/pvt/stockkeepingunit
-//param [ optional(params, example -> const params = {refId: 20}) ]
-const stockKeepingUnitGetSkus = await vtex.StockKeepingUnit.getSkus(params);
+//param [ require(refId) ]
+const stockKeepingUnitGetSkus = await vtex.StockKeepingUnit.getSkus(refId);
 
 //https://{accountName}.{environment}.com.br/api/catalog/pvt/stockkeepingunit/skuId/file
 //param [ require(skuId), require(body) ]
@@ -143,4 +144,92 @@ const stockKeepingUnitGetEANBySkuId = await vtex.StockKeepingUnit.getEANBySkuId(
 //https://{accountName}.{environment}.com.br/api/catalog/pvt/stockkeepingunit/skuId/ean
 //param [ require(skuId), require(ean) ]
 const stockKeepingUnitCreateEAN = await vtex.StockKeepingUnit.createEAN(skuId, ean);
+```
+
+# Orders
+
+## Order
+
+```js
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId
+//param [ require(orderId) ]
+const orderGetById = await vtex.Order.getById(orderId);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders
+//param [ require(params, example -> params = {f_creationDate: 'creationDate:[2016-01-01T02:00:00.000Z TO 2021-01-01T01:59:59.999Z]'}) ]
+const orderList = await vtex.Order.lists(params);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/start-handling
+//param [ require(orderId) ]
+const orderStartHandling = await vtex.Order.startHandling(orderId);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/cancel
+//param [ require(orderId) ]
+const orderCancel = await vtex.Order.cancel(orderId);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/changes
+//param [ require(orderId), require(body) ]
+const orderChange = await vtex.Order.change(orderId, body);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/changestate/status
+//param [ require(orderId), require(status) ]
+const orderChangeStatus = await vtex.Order.changeStatus(orderId, status);
+```
+
+
+## Invoice
+
+```js
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/invoice
+//param [ require(orderId), require(body) ]
+const invoiceCreate = await vtex.Order.Invoice.create(orderId, body);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/invoice/invoiceNumber
+//param [ require(orderId), require(invoiceNumber), require(body) ]
+const invoicePartial = await vtex.Order.Invoice.partial(orderId, invoiceNumber, body);
+
+//https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/invoice/invoiceNumber/tracking
+//param [ require(orderId) ]
+const invoiceTracking = await vtex.Order.Invoice.updateTracking(orderId, invoiceNumber, body);
+```
+
+
+## Feed
+
+```js
+//https://{accountName}.{environment}.com.br/api/orders/feed
+//param [ require(body) ]
+const feedCreate = await vtex.Order.Feed.create(body);
+
+//https://{accountName}.{environment}.com.br/api/orders/feed
+//param [ require(maxlot) ]
+const feedGet = await vtex.Order.Feed.get(maxlot);
+
+//https://{accountName}.{environment}.com.br/api/orders/feed/config
+//param [ require(body) ]
+const feedUpdateConfig = await vtex.Order.Feed.updateConfig(body);
+
+//https://{accountName}.{environment}.com.br/api/orders/feed/config
+const feedGetConfig = await vtex.Order.Feed.getConfig();
+```
+
+
+## Hook
+
+```js
+//https://{accountName}.{environment}.com.br/api/orders/hook/config
+//param [ require(body) ]
+const hookCreateOrUpdate = await vtex.Order.Hook.createOrUpdate(body);
+
+//https://{accountName}.{environment}.com.br/api/orders/hook/config
+const hookDelete = await vtex.Order.Hook.delete();
+```
+
+
+## Users
+
+```js
+//https://{accountName}.{environment}.com.br/api/oms/user/orders
+//param [ require(clientEmail), require(page), require(per_page) ]
+const userGetOrders = await vtex.User.getOrders(clientEmail, page, per_page);
 ```
