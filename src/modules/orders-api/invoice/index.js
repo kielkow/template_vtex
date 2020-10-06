@@ -7,8 +7,8 @@ class Invoice {
         }
     }
 
-    create(orderId, body) {
-        const invoice = axios.put(
+    async create(orderId, body) {
+        const invoice = await axios.put(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/invoice`,
             {
                 headers: this.credentials,
@@ -19,8 +19,8 @@ class Invoice {
         return invoice;
     }
 
-    updateTracking(orderId, invoiceNumber, body) {
-        const invoice = axios.put(
+    async updateTracking(orderId, invoiceNumber, body) {
+        const invoice = await axios.put(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/invoice/${invoiceNumber}/tracking`,
             {
                 headers: this.credentials,
@@ -31,8 +31,8 @@ class Invoice {
         return invoice;
     }
 
-    partial(orderId, invoiceNumber, body) {
-        const invoice = axios.patch(
+    async partial(orderId, invoiceNumber, body) {
+        const invoice = await axios.patch(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/invoice/${invoiceNumber}`,
             {
                 headers: this.credentials,

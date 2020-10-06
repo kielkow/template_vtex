@@ -7,8 +7,8 @@ class Hook {
         }
     }
 
-    createOrUpdate(body) {
-        const hook = axios.post(
+    async createOrUpdate(body) {
+        const hook = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/hook/config`,
             {
                 headers: this.credentials,
@@ -19,8 +19,8 @@ class Hook {
         return hook;
     }
 
-    delete() {
-        const hook = axios.delete(
+    async delete() {
+        const hook = await axios.delete(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/orders/hook/config`,
             {
                 headers: this.credentials

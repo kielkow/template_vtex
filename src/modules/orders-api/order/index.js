@@ -13,8 +13,8 @@ class Order {
         this.Hook = new Hook();
     }
 
-    getById(orderId) {
-        const order = axios.get(
+    async getById(orderId) {
+        const order = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}`,
             {
                 headers: this.credentials
@@ -24,8 +24,8 @@ class Order {
         return order;
     }
 
-    lists(params) {
-        const order = axios.get(
+    async lists(params) {
+        const order = await axios.get(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders`,
             {
                 headers: this.credentials,
@@ -37,8 +37,8 @@ class Order {
     }
 
 
-    startHandling(orderId) {
-        const order = axios.post(
+    async startHandling(orderId) {
+        const order = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/start-handling`,
             {
                 headers: this.credentials
@@ -48,8 +48,8 @@ class Order {
         return order;
     }
 
-    cancel(orderId) {
-        const order = axios.post(
+    async cancel(orderId) {
+        const order = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/cancel`,
             {
                 headers: this.credentials
@@ -59,8 +59,8 @@ class Order {
         return order;
     }
 
-    change(orderId, body) {
-        const order = axios.post(
+    async change(orderId, body) {
+        const order = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/changes`,
             {
                 headers: this.credentials,
@@ -71,8 +71,8 @@ class Order {
         return order;
     }
     
-    changeStatus(orderId, status) {
-        const order = axios.post(
+    async changeStatus(orderId, status) {
+        const order = await axios.post(
             `https://${this.credentials.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders/${orderId}/changestate/${status}`,
             {
                 headers: this.credentials
@@ -81,8 +81,6 @@ class Order {
 
         return order;
     }
-
-
 }
 
 module.exports = Order;
