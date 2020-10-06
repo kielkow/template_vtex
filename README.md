@@ -9,16 +9,17 @@ npm i template-vtex
 
 coding:
 ```js
-const template_vtex = require('./src');
+const template_vtex = require('template-vtex');
 
 async function test() {
     const vtex = new template_vtex(
         'accountName', 
         'appKey',
         'appToken'
-    )
+    );
 
-    const order = await vtex.Order.getById('1066170087745-01')
+    const order = await vtex.Order.getById('1066170087745-01');
+
     console.log(order);
 }
 
