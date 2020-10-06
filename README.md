@@ -28,18 +28,18 @@ test();
 
 # Methods
 
-📦vtex
- ┣ 📂Brand
- ┣ 📂Category
- ┣ 📂Inventory
- ┣ 📂Price
- ┣ 📂Product
- ┣ 📂Sku
- ┣ 📂StockKeepingUnit
- ┣ 📂Order
- ┃ ┗ 📂Invoice
- ┃ ┗ 📂Feed
- ┃ ┗ 📂Hook
+📦vtex  
+ ┣ 📂Brand  
+ ┣ 📂Category  
+ ┣ 📂Inventory  
+ ┣ 📂Price  
+ ┣ 📂Product  
+ ┣ 📂Sku  
+ ┣ 📂StockKeepingUnit  
+ ┣ 📂Order  
+ ┃ ┗ 📂Invoice  
+ ┃ ┗ 📂Feed  
+ ┃ ┗ 📂Hook  
 
 
 # Signature methods
