@@ -21,4 +21,4 @@ class Vtex {
     }
 }
 
-module.exports =  Vtex;
+module.exports = Vtex;
