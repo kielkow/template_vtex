@@ -7,11 +7,19 @@
     "start": "node src/index.js",
     "new-publish": "node publish.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kielkow/template_vtex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kielkow/template_vtex/issues"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.20.0",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

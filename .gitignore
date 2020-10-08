@@ -3,3 +3,4 @@ package-lock.json
 .env
 test.js
 dist
+my-test.js

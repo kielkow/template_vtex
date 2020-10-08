@@ -1,11 +1,11 @@
-console.log(require('./package.json').version)
-const version = require('./package.json').version.split('.');
-const newVersion = (parseInt(version[2])+1).join('.');
+let version = require('./package.json').version.split('.');
+version[2] = parseInt(version[2])+1;
+version = version.join('.');
 
 const {exec} = require('child_process');
 const process = require('child_process');
 
-exec(`npm version ${newVersion}`, (error, stdout, stderr) => {
+exec(`npm version ${version}`, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return
