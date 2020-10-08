@@ -26,3 +26,12 @@ fs.copyFile("package-lock.json", "dist/package-lock.json", (err) => {
         fs.readFileSync("dist/package-lock.json", "utf8"); 
     } 
 }); 
+
+fs.copyFile("README.md", "dist/README.md", (err) => { 
+    if (err) { 
+      console.log("Error Found:", err); 
+    } 
+    else { 
+        fs.readFileSync("dist/README.md", "utf8"); 
+    } 
+}); 
