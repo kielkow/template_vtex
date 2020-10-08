@@ -17,7 +17,6 @@ fs.copyFile("package.json", "dist/package.json", (err) => {
     } 
 }); 
 
-
 fs.copyFile("package-lock.json", "dist/package-lock.json", (err) => { 
     if (err) { 
       console.log("Error Found:", err); 
@@ -34,4 +33,4 @@ fs.copyFile("README.md", "dist/README.md", (err) => {
     else { 
         fs.readFileSync("dist/README.md", "utf8"); 
     } 
-}); 
+});
