@@ -22,9 +22,11 @@ exec(`npm version ${version}`, (error, stdout, stderr) => {
 
 });
 
+/*
 process.fork('obfuscator.js');
+*/
 
-exec(`cd dist && npm publish`, (error, stdout, stderr) => {
+exec(`npm publish`, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return
@@ -35,23 +37,19 @@ exec(`cd dist && npm publish`, (error, stdout, stderr) => {
 
     if (stdout) {
         console.log(`stdout: ${stdout}`);
+   
+        exec(`git push`, (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                return
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+            }
+        
+            if (stdout) {
+                console.log(`stdout: ${stdout}`);
+            }
+        });
     }
-
-
-});
-
-exec(`git push`, (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-    }
-
-    if (stdout) {
-        console.log(`stdout: ${stdout}`);
-    }
-
-
 });
