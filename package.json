@@ -4,12 +4,19 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "new-publish": "node publish.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-beautify": "^3.0.0",
+    "gulp-javascript-obfuscator": "^1.1.6",
+    "vinyl-sourcemaps-apply": "^0.2.1"
   }
 }
