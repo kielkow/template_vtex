@@ -3,6 +3,8 @@ const axios = require('axios');
 const Invoice = require('../invoice');
 const Feed = require('../feed');
 const Hook = require('../hook');
+const moment = require('moment');
+const auxiliarFunction = require('./functions');
 
 class Order {
     constructor(accountName, appKey, appToken) {
@@ -38,6 +40,59 @@ class Order {
         );
 
         return order;
+    }
+
+    async paginateLists(params) {
+        let momentStart = moment();
+        if (params.start) {
+            let paramsStart = params.start;
+            Object.keys(paramsStart).forEach(index => {
+                if (index == 'date') {
+                    momentStart = moment(paramsStart[index]);
+                } else {
+                    momentStart.subtract(paramsStart[index], index);
+                }
+            });
+        }
+
+        let momentEnd = moment();
+        if (params.end) {
+            let paramsEnd = params.end;
+            Object.keys(paramsEnd).forEach(index => {
+                if (index == 'date') {
+                    momentEnd = moment(paramsEnd[index].date);
+                } else {
+                    momentEnd.subtract(paramsEnd[index], index);
+                }
+            });
+        }
+
+        let endDate = new Date(momentEnd).toISOString();
+        let startDate = new Date(momentStart).toISOString();
+
+        if (startDate > endDate) {
+            const auxiliarDate = startDate;
+            startDate = endDate;
+            endDate = auxiliarDate;
+        }
+
+        let queryStringObject = {
+            f_creationDate: params.f_creationDate || `creationDate:[${startDate} TO ${endDate}]`,
+            page: params.page || 1,
+            per_page: params.per_page || 100
+        };
+
+        let paramsQuery = ['f_status', 'orderBy', 'incompleteOrders'];
+
+        paramsQuery.forEach(query => {
+            if (params[query]) {
+                queryStringObject[query] = params[query];
+            }
+        });
+        
+        const orders = await auxiliarFunction.getAllOrders(this.credentials, queryStringObject, startDate, endDate);
+
+        return orders;
     }
 
 
