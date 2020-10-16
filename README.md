@@ -1,4 +1,6 @@
 # Package util for work with VTEX API
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkielkow%2Ftemplate_vtex.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkielkow%2Ftemplate_vtex?ref=badge_shield)
+
 
 How to use?
 
@@ -240,3 +242,6 @@ const hookDelete = await vtex.Order.Hook.delete();
 //param [ require(clientEmail), require(page), require(per_page) ]
 const userGetOrders = await vtex.User.getOrders(clientEmail, page, per_page);
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkielkow%2Ftemplate_vtex.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkielkow%2Ftemplate_vtex?ref=badge_large)
