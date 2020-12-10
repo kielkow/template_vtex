@@ -79,17 +79,18 @@ class Order {
         let queryStringObject = {
             f_creationDate: params.f_creationDate || `creationDate:[${startDate} TO ${endDate}]`,
             page: params.page || 1,
-            per_page: params.per_page || 100
+            per_page: params.per_page || 100,
+            orderBy: "creationDate,asc"
         };
 
-        let paramsQuery = ['f_status', 'orderBy', 'incompleteOrders'];
+        let paramsQuery = ['f_status', 'q', 'incompleteOrders'];
 
         paramsQuery.forEach(query => {
             if (params[query]) {
                 queryStringObject[query] = params[query];
             }
         });
-        
+
         const orders = await auxiliarFunction.getAllOrders(this.credentials, queryStringObject, startDate, endDate);
 
         return orders;
