@@ -46,7 +46,7 @@ async function getAllOrders (credential, queryStringObject, startDate, endDate, 
                 );
                 
                 if (time) {
-                    sleep(time);
+                    await sleep(time);
                 }
 
                 if (responseOrders.data.list.length != 0) {
