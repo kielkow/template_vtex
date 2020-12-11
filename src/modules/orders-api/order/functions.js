@@ -1,7 +1,8 @@
 const axios = require('axios');
 const moment = require('moment');
+const sleep = require('../../../utils/sleep');
 
-async function getAllOrders (credential, queryStringObject, startDate, endDate, orders = []) {
+async function getAllOrders (credential, queryStringObject, startDate, endDate, orders = [], time = null) {
     let urlBaseOrderList = `https://${credential.accountName}.vtexcommercestable.com.br/api/oms/pvt/orders`;
     let queryString = Object.keys(queryStringObject).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryStringObject[key])}`).join('&');
     let url = `${urlBaseOrderList}?${queryString}`;
@@ -43,6 +44,10 @@ async function getAllOrders (credential, queryStringObject, startDate, endDate, 
                         headers: credential
                     }
                 );
+                
+                if (time) {
+                    sleep(time);
+                }
 
                 if (responseOrders.data.list.length != 0) {
                     orders = orders.concat(responseOrders.data.list);

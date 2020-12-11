@@ -42,7 +42,7 @@ class Order {
         return order;
     }
 
-    async paginateLists(params) {
+    async paginateLists(params, sleep = null) {
         let momentStart = moment();
         if (params.start) {
             let paramsStart = params.start;
@@ -91,7 +91,7 @@ class Order {
             }
         });
 
-        const orders = await auxiliarFunction.getAllOrders(this.credentials, queryStringObject, startDate, endDate);
+        const orders = await auxiliarFunction.getAllOrders(this.credentials, queryStringObject, startDate, endDate, [], sleep);
 
         return orders;
     }
