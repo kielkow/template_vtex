@@ -19,7 +19,9 @@ async function getAllOrders (credential, queryStringObject, startDate, endDate, 
     if (orderList.length != 0) {
         orders = orders.concat(orderList);
         let pages = responseOrders.data.paging.pages;
-
+        responseOrders.data.paging.orderTotal = orders.length;
+        console.log(responseOrders.data.paging);
+        
         let orderLastDateCreation = null;
 
         if (pages > 1) {
@@ -51,6 +53,10 @@ async function getAllOrders (credential, queryStringObject, startDate, endDate, 
 
                 if (responseOrders.data.list.length != 0) {
                     orders = orders.concat(responseOrders.data.list);
+                    
+                    responseOrders.data.paging.orderTotal = orders.length;
+                    console.log(responseOrders.data.paging);
+
                     let order = responseOrders.data.list.pop();
                     orderLastDateCreation = order.creationDate;
                 }
