@@ -163,10 +163,10 @@ const orderGetById = await vtex.Order.getById(orderId);
 const orderList = await vtex.Order.lists(params);
 
 //https://{accountName}.{environment}.com.br/api/oms/pvt/orders
-//param [ require(params, example -> params = {f_creationDate: 'creationDate:[2016-01-01T02:00:00.000Z TO 2021-01-01T01:59:59.999Z]'}) ]
+//param [ require(params, example -> params = {f_creationDate: 'creationDate:[2016-01-01T02:00:00.000Z TO 2021-01-01T01:59:59.999Z]'}), optional(sleep, milliseconds frozen application) ]
 //Additional params, params = {"start": {"years": 1,"months": 3,"days": 5,"hours": 10,"minutes": 9,"seconds": 33,"date": "02/10/2020}, "end": {"years": 1,"months": 3,"days": 5,"hours": 10,"minutes": 9,"seconds": 33, "date": "02/10/2020}
 
-const orderList = await vtex.Order.paginateLists(params);
+const orderList = await vtex.Order.paginateLists(params, sleep);
 
 //https://{accountName}.{environment}.com.br/api/oms/pvt/orders/orderId/start-handling
 //param [ require(orderId) ]
