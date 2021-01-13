@@ -60,7 +60,7 @@ class Order {
             let paramsEnd = params.end;
             Object.keys(paramsEnd).forEach(index => {
                 if (index == 'date') {
-                    momentEnd = moment(paramsEnd[index].date);
+                    momentEnd = moment(paramsEnd[index]);
                 } else {
                     momentEnd.subtract(paramsEnd[index], index);
                 }
